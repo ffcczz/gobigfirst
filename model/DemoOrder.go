@@ -1,7 +1,9 @@
 package model
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
+	db2 "gobigfirst/db"
 	"strconv"
 )
 
@@ -16,8 +18,10 @@ type DemoOrder struct {
 
 var DB *gorm.DB
 
+
+
 func InitDB() (*gorm.DB, error) {
-	db, err := gorm.Open("mysql", "root:123456@/test?charset=utf8&parseTime=True&loc=Local")
+	db, err := gorm.Open("mysql", fmt.Sprintf("%s:%s@/%s?charset=utf8&parseTime=True&loc=Local" , db2.USERNAME, db2.PASSWORD, "test" ))
 
 	if err == nil {
 		DB = db
