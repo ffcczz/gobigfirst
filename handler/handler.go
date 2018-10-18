@@ -1,8 +1,8 @@
 package handler
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/labstack/gommon/log"
 	"gobigfirst/model"
 )
 import "gobigfirst/service"
@@ -53,7 +53,7 @@ func UpdateDemoOrder(c *gin.Context)  {
 
 func GetDemoOrderList(c *gin.Context)  {
 	userName := c.Param("userName")
-	log.Info("需要查询的userName= ", userName)
+	fmt.Println("需要查询的userName= ", userName)
 	demoOrders, err := service.GetDemoOrderList(userName)
 	if err != nil {
 		c.JSON(200, err)

@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"gobigfirst/model"
 	"testing"
 )
@@ -36,4 +37,27 @@ func Test_Update(t *testing.T)  {
 
 	}
 	Update(&demoOrder)
+}
+
+func Test_GetDemoOrderById(t *testing.T) {
+	id := "1"
+	demoOrder,err := GetDemoOrderById(id)
+	fmt.Println(demoOrder, err)
+}
+
+func Test_GetDemoOrderList(t *testing.T)  {
+	userName := "lis"
+	demoOrders, err := GetDemoOrderList(userName)
+	if err == nil {
+
+		for i := 0; i< len(demoOrders); i++ {
+			fmt.Println(demoOrders[i])
+		}
+	}
+}
+
+func Test_string(t *testing.T)  {
+	for i := 0; i < 10; i++ {
+		fmt.Println(string(i))
+	}
 }

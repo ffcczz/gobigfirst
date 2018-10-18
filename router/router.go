@@ -1,4 +1,4 @@
-package router
+package main
 
 import (
 	"github.com/gin-gonic/gin"
@@ -7,17 +7,14 @@ import (
 
 func main()  {
 	r := gin.Default()
-	r.Group("/demoOrder")
-	{
 
-		r.GET("/", handler.GetDemoOrder)
-		r.POST("/", handler.CreateDemoOrder)
-		r.PUT("/", handler.UpdateDemoOrder)
-	}
-	r.Group("/demoOrders")
-	{
-		r.GET("/", handler.GetDemoOrderList)
-	}
+
+	r.GET("/demoOrder", handler.GetDemoOrder)
+	r.POST("/demoOrder", handler.CreateDemoOrder)
+	r.PUT("/demoOrder", handler.UpdateDemoOrder)
+
+	r.GET("/demoOrders")
+
 
 	r.Run(":8080")
 }
